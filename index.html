@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicholas Flora | Data Analyst & Technologist</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        base: '#121212',
+                        surface: '#1E1E1E',
+                        border: '#2A2A2A',
+                        copper: {
+                            500: '#C87533',
+                            600: '#B45309',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #E5E5E5;
+            font-family: 'Inter', sans-serif;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #121212; }
+        ::-webkit-scrollbar-thumb { background: #C87533; border-radius: 4px; }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero-glow {
+            background: radial-gradient(circle at 50% 0%, rgba(200, 117, 51, 0.15) 0%, rgba(18, 18, 18, 0) 60%);
+        }
+
+        .about-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent 0%,
+                rgba(255, 200, 150, 0.12) 40%,
+                rgba(200, 117, 51, 0.18) 50%,
+                rgba(255, 200, 150, 0.12) 60%,
+                transparent 100%
+            );
+            transform: skewX(-20deg);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .about-card.sheen::before {
+            animation: sheen-sweep 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        .about-card:nth-child(1).sheen::before { animation-delay: 0s; }
+        .about-card:nth-child(2).sheen::before { animation-delay: 0.15s; }
+        .about-card:nth-child(3).sheen::before { animation-delay: 0.3s; }
+        .about-card:nth-child(4).sheen::before { animation-delay: 0.45s; }
+
+        @keyframes sheen-sweep {
+            0%   { left: -100%; }
+            100% { left: 150%; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed w-full z-50 bg-base/80 backdrop-blur-md border-b border-border">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#hero" class="font-display font-bold text-xl text-white tracking-tight">N.F<span class="text-copper-500">.</span></a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+                <a href="#about" class="hover:text-copper-500 transition">About</a>
+                <a href="#experience" class="hover:text-copper-500 transition">Experience</a>
+                <a href="#skills" class="hover:text-copper-500 transition">Skills</a>
+                <a href="#contact" class="hover:text-copper-500 transition">Contact</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-gray-400 hover:text-copper-500">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-surface border-t border-border">
+            <div class="flex flex-col px-6 py-4 space-y-4 text-gray-400">
+                <a href="#about" class="hover:text-copper-500">About</a>
+                <a href="#experience" class="hover:text-copper-500">Experience</a>
+                <a href="#skills" class="hover:text-copper-500">Skills</a>
+                <a href="#contact" class="hover:text-copper-500">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="relative min-h-screen flex items-center justify-center hero-glow pt-20">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="fade-in">
+                <p class="text-copper-500 font-mono text-sm mb-4 tracking-widest uppercase">Data Analyst & Technologist</p>
+                <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                    Nicholas Flora
+                </h1>
+                <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                    UK-based Computing in Business graduate with a 2:1. I'm backed by a lifelong passion for technology and innovation.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#contact" class="px-8 py-3 bg-copper-500 hover:bg-copper-600 text-white font-semibold rounded-lg transition shadow-lg shadow-copper-500/20">
+                        Get in Touch
+                    </a>
+                    <a href="#experience" class="px-8 py-3 border border-border hover:border-copper-500 text-gray-300 hover:text-white font-semibold rounded-lg transition">
+                        View Experience
+                    </a>
+                </div>
+                <div class="mt-12 flex justify-center gap-6 text-gray-500 text-sm">
+                    <span><i class="fas fa-map-marker-alt mr-2 text-copper-500"></i>Southport, UK</span>
+                    <span><i class="fas fa-passport mr-2 text-copper-500"></i>UK & US Citizen</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 border-t border-border">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="fade-in grid md:grid-cols-3 gap-12">
+                <div class="md:col-span-1">
+                    <h2 class="font-display text-3xl font-bold text-white mb-2">About Me</h2>
+                    <div class="w-12 h-1 bg-copper-500 mb-6"></div>
+                    <p class="text-gray-400 leading-relaxed">
+                        Born in 2002, I always kept up to date with the latest tech innovations out of nessecity. I have built and used computers with Windows, Linux, and MacOS almost my entire life. When I'm not working, I maintain several computer-based interests, including working with virtual private servers and web development (among others).
+                    </p>
+                </div>
+                <div class="md:col-span-2 grid sm:grid-cols-2 gap-6">
+                    <div class="bg-surface p-6 rounded-xl border border-border hover:border-copper-500/50 transition about-card">
+                        <i class="fas fa-chart-line text-2xl text-copper-500 mb-4"></i>
+                        <h3 class="text-white font-semibold mb-2">Data & Analytics</h3>
+                        <p class="text-gray-400 text-sm">Transforming qualitative and quantitative inputs into bespoke dashboards and actionable business reports.</p>
+                    </div>
+                    <div class="bg-surface p-6 rounded-xl border border-border hover:border-copper-500/50 transition about-card">
+                        <i class="fas fa-microchip text-2xl text-copper-500 mb-4"></i>
+                        <h3 class="text-white font-semibold mb-2">Systems & AI</h3>
+                        <p class="text-gray-400 text-sm">Experience in AI model QA, requirements engineering, and maintaining VPS.</p>
+                    </div>
+                    <div class="bg-surface p-6 rounded-xl border border-border hover:border-copper-500/50 transition about-card">
+                        <i class="fas fa-plug text-2xl text-copper-500 mb-4"></i>
+                        <h3 class="text-white font-semibold mb-2">Integration</h3>
+                        <p class="text-gray-400 text-sm">Connecting disparate services via APIs and building custom onboarding applications using the Power Platform.</p>
+                    </div>
+                    <div class="bg-surface p-6 rounded-xl border border-border hover:border-copper-500/50 transition about-card">
+                        <i class="fas fa-shield-alt text-2xl text-copper-500 mb-4"></i>
+                        <h3 class="text-white font-semibold mb-2">Security & Compliance</h3>
+                        <p class="text-gray-400 text-sm">Strict adherence to data protection and secure network practices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-24 bg-surface/50 border-t border-border">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="fade-in text-center mb-16">
+                <h2 class="font-display text-3xl font-bold text-white mb-2">Professional Experience</h2>
+                <div class="w-12 h-1 bg-copper-500 mx-auto"></div>
+            </div>
+            
+            <div class="space-y-8">
+                <div class="fade-in bg-base p-8 rounded-xl border border-border hover:border-copper-500/30 transition">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Data Analyst</h3>
+                            <p class="text-copper-500 font-medium">TELUS Intl <span class="text-gray-500 font-normal">· Remote</span></p>
+                        </div>
+                        <span class="text-sm text-gray-500 font-mono mt-2 md:mt-0">Sep 2024 – Present</span>
+                    </div>
+                    <ul class="text-gray-400 space-y-2 text-sm leading-relaxed">
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-copper-500 text-xs mt-1.5 mr-3"></i>Contractual position annotating and quality checking qualitative and quantitative inputs/outputs of AI models.</li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-copper-500 text-xs mt-1.5 mr-3"></i>Strict adherence to detailed guidelines and high-quality standards.</li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-copper-500 text-xs mt-1.5 mr-3"></i>Utilizing requirements engineering to test and optimize models' interaction with end users.</li>
+                    </ul>
+                </div>
+
+                <div class="fade-in bg-base p-8 rounded-xl border border-border hover:border-copper-500/30 transition">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Data Analyst / Manager</h3>
+                            <p class="text-copper-500 font-medium">Timeout Homes Ltd <span class="text-gray-500 font-normal">· Ripponden</span></p>
+                        </div>
+                        <span class="text-sm text-gray-500 font-mono mt-2 md:mt-0">Aug 2022 – Aug 2023</span>
+                    </div>
+                    <p class="text-gray-500 text-xs mb-4 italic">Full-time university placement. Operated autonomously as the sole IT/Data employee supporting 3 schools and 18 residential facilities.</p>
+                    <ul class="text-gray-400 space-y-2 text-sm leading-relaxed">
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-copper-500 text-xs mt-1.5 mr-3"></i>Analysed data to produce bespoke Power BI dashboards and reports servicing quarterly and annual timeframes.</li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-copper-500 text-xs mt-1.5 mr-3"></i>Developed a custom training and onboarding application using Power Apps.</li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-copper-500 text-xs mt-1.5 mr-3"></i>Integrated cloud-based HR/education services (PeopleHR, RotaCloud, Arbor) via APIs to Power BI/Power Apps.</li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-copper-500 text-xs mt-1.5 mr-3"></i>Led the migration of all therapeutic carer data (timetables, personal details) from PeopleHR to RotaCloud.</li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-copper-500 text-xs mt-1.5 mr-3"></i>Ensured strict conformance to data protection standards and trained the replacement intern.</li>
+                    </ul>
+                </div>
+
+                <div class="fade-in grid md:grid-cols-2 gap-8">
+                    <div class="bg-base p-6 rounded-xl border border-border">
+                        <h3 class="text-lg font-bold text-white mb-1">Wait Staff</h3>
+                        <p class="text-copper-500 text-sm font-medium mb-1">Chorley Masonic Hall</p>
+                        <span class="text-xs text-gray-500 font-mono">Sep 2021 – Aug 2022</span>
+                        <p class="text-gray-400 text-sm mt-3">Front of house duties, new hire training, kitchen hygiene, and hospitality management.</p>
+                    </div>
+                    <div class="bg-base p-6 rounded-xl border border-border">
+                        <h3 class="text-lg font-bold text-white mb-1">Retail Assistant</h3>
+                        <p class="text-copper-500 text-sm font-medium mb-1">The Range</p>
+                        <span class="text-xs text-gray-500 font-mono">Sep 2020 – Feb 2021</span>
+                        <p class="text-gray-400 text-sm mt-3">Front-facing seasonal role. Cross-trained as cashier, customer service, and warehouse assistant.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-24 border-t border-border">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="fade-in grid md:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="font-display text-3xl font-bold text-white mb-2">Technical Arsenal</h2>
+                    <div class="w-12 h-1 bg-copper-500 mb-8"></div>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-sm font-semibold text-copper-500 uppercase tracking-wider mb-3">Data & Analytics</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-surface border border-border rounded-full text-sm text-gray-300 hover:bg-copper-500 hover:text-white hover:border-copper-500 hover:shadow-lg hover:shadow-copper-500/30 transition-all duration-200 cursor-default">Power BI</span>
+                                <span class="px-3 py-1 bg-surface border border-border rounded-full text-sm text-gray-300 hover:bg-copper-500 hover:text-white hover:border-copper-500 hover:shadow-lg hover:shadow-copper-500/30 transition-all duration-200 cursor-default">Power Apps</span>
+                                <span class="px-3 py-1 bg-surface border border-border rounded-full text-sm text-gray-300 hover:bg-copper-500 hover:text-white hover:border-copper-500 hover:shadow-lg hover:shadow-copper-500/30 transition-all duration-200 cursor-default">R</span>
+                                <span class="px-3 py-1 bg-surface border border-border rounded-full text-sm text-gray-300 hover:bg-copper-500 hover:text-white hover:border-copper-500 hover:shadow-lg hover:shadow-copper-500/30 transition-all duration-200 cursor-default">Python</span>
+                                <span class="px-3 py-1 bg-surface border border-border rounded-full text-sm text-gray-300 hover:bg-copper-500 hover:text-white hover:border-copper-500 hover:shadow-lg hover:shadow-copper-500/30 transition-all duration-200 cursor-default">SQL</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-semibold text-copper-500 uppercase tracking-wider mb-3">Development & Web</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-surface border border-border rounded-full text-sm text-gray-300 hover:bg-copper-500 hover:text-white hover:border-copper-500 hover:shadow-lg hover:shadow-copper-500/30 transition-all duration-200 cursor-default">HTML/CSS</span>
+                                <span class="px-3 py-1 bg-surface border border-border rounded-full text-sm text-gray-300 hover:bg-copper-500 hover:text-white hover:border-copper-500 hover:shadow-lg hover:shadow-copper-500/30 transition-all duration-200 cursor-default">JavaScript</span>
+                                <span class="px-3 py-1 bg-surface border border-border rounded-full text-sm text-gray-300 hover:bg-copper-500 hover:text-white hover:border-copper-500 hover:shadow-lg hover:shadow-copper-500/30 transition-all duration-200 cursor-default">PHP</span>
+                                <span class="px-3 py-1 bg-surface border border-border rounded-full text-sm text-gray-300 hover:bg-copper-500 hover:text-white hover:border-copper-500 hover:shadow-lg hover:shadow-copper-500/30 transition-all duration-200 cursor-default">APIs</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-semibold text-copper-500 uppercase tracking-wider mb-3">Systems & Platforms</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-surface border border-border rounded-full text-sm text-gray-300 hover:bg-copper-500 hover:text-white hover:border-copper-500 hover:shadow-lg hover:shadow-copper-500/30 transition-all duration-200 cursor-default">Microsoft 365</span>
+                                <span class="px-3 py-1 bg-surface border border-border rounded-full text-sm text-gray-300 hover:bg-copper-500 hover:text-white hover:border-copper-500 hover:shadow-lg hover:shadow-copper-500/30 transition-all duration-200 cursor-default">PowerShell</span>
+                                <span class="px-3 py-1 bg-surface border border-border rounded-full text-sm text-gray-300 hover:bg-copper-500 hover:text-white hover:border-copper-500 hover:shadow-lg hover:shadow-copper-500/30 transition-all duration-200 cursor-default">Linux / Windows / MacOS</span>
+                                <span class="px-3 py-1 bg-surface border border-border rounded-full text-sm text-gray-300 hover:bg-copper-500 hover:text-white hover:border-copper-500 hover:shadow-lg hover:shadow-copper-500/30 transition-all duration-200 cursor-default">VPS Maintenance</span>
+                                <span class="px-3 py-1 bg-surface border border-border rounded-full text-sm text-gray-300 hover:bg-copper-500 hover:text-white hover:border-copper-500 hover:shadow-lg hover:shadow-copper-500/30 transition-all duration-200 cursor-default">Wix / Shopify</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-3xl font-bold text-white mb-2">Education & Awards</h2>
+                    <div class="w-12 h-1 bg-copper-500 mb-8"></div>
+                    
+                    <div class="bg-surface p-6 rounded-xl border border-border mb-6">
+                        <h3 class="text-lg font-bold text-white">BA(Hons) Computing in Business</h3>
+                        <p class="text-copper-500 text-sm font-medium">University of Huddersfield, UK</p>
+                        <span class="text-xs text-gray-500 font-mono">2020 – 2024 · 2:1</span>
+                        <p class="text-gray-400 text-sm mt-3">Practical degree covering networks, cyber security, management, report writing, and project management.</p>
+                    </div>
+
+                    <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">Recognitions</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-award text-copper-500 mr-3"></i>
+                            <span>National Cyber Security Centre Cyber Futures <span class="text-gray-500 text-sm">(2018)</span></span>
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-medal text-copper-500 mr-3"></i>
+                            <span>Duke of Edinburgh Bronze <span class="text-gray-500 text-sm">(2018)</span></span>
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-campground text-copper-500 mr-3"></i>
+                            <span>Chief Scouts Gold <span class="text-gray-500 text-sm">(2016)</span></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="py-24 bg-surface border-t border-border">
+        <div class="max-w-4xl mx-auto px-6 text-center fade-in">
+            <h2 class="font-display text-4xl font-bold text-white mb-4">Let's Work Together</h2>
+            <p class="text-gray-400 mb-10 max-w-xl mx-auto">I am currently open to new opportunities in data analysis, business intelligence, and tech-enabled business roles. Feel free to reach out.</p>
+            
+            <div class="grid sm:grid-cols-3 gap-6 mb-12">
+                <a href="mailto:nick@criticalground.com" class="bg-base p-6 rounded-xl border border-border hover:border-copper-500 transition group">
+                    <i class="fas fa-envelope text-2xl text-copper-500 mb-3 group-hover:scale-110 transition"></i>
+                    <p class="text-white font-medium">Email</p>
+                    <p class="text-gray-400 text-sm">nick@criticalground.com</p>
+                </a>
+                <a href="tel:+447419819727" class="bg-base p-6 rounded-xl border border-border hover:border-copper-500 transition group">
+                    <i class="fas fa-phone text-2xl text-copper-500 mb-3 group-hover:scale-110 transition"></i>
+                    <p class="text-white font-medium">Phone</p>
+                    <p class="text-gray-400 text-sm">+44 7419 819 727</p>
+                </a>
+                <div class="bg-base p-6 rounded-xl border border-border">
+                    <i class="fas fa-globe text-2xl text-copper-500 mb-3"></i>
+                    <p class="text-white font-medium">Mobility</p>
+                    <p class="text-gray-400 text-sm">UK & US Citizen</p>
+                </div>
+            </div>
+
+            <div class="border-t border-border pt-8 text-gray-500 text-sm">
+                <p></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        const aboutSection = document.getElementById('about');
+        const aboutCards = document.querySelectorAll('.about-card');
+        const sheenObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    aboutCards.forEach(card => card.classList.add('sheen'));
+                    sheenObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        sheenObserver.observe(aboutSection);
+    </script>
+</body>
+</html>
